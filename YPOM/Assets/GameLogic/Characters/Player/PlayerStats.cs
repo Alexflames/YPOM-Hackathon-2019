@@ -9,6 +9,8 @@ public class PlayerStats : MonoBehaviour
     public bool walkwater;
     public bool disguise;
     public bool aiingnore;
+    public int creeps_count;
+    public int kills_count;
     public int exp;
     public int nutrients;
     public int combat;
