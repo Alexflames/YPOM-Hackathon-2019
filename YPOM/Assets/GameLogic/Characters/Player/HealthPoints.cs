@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class HealthPoints : MonoBehaviour
 {
-    public int healthp = 3;
+    public float healthp = 20;
     public int maxhealthp = 3;
-
 
     public void TakeDamage()
     {
