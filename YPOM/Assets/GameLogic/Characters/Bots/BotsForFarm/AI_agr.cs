@@ -6,7 +6,7 @@ public class AI_agr : MonoBehaviour
 {
     Player_detect bot;
     AI_stats stats;
-    public float bot_agr_range;
+    public float bot_agr_range = 10f;
     public float bot_speed;
     GameObject player;
    public GameObject min_dist = null;
@@ -32,9 +32,14 @@ public class AI_agr : MonoBehaviour
                 min_dist = obj;
             }
         }
-        if (min_dist != null && Vector3.Distance(transform.position, min_dist.transform.position) <= min_distance)
+        if (min_dist != null && Vector3.Distance(transform.position, min_dist.transform.position) <= bot_agr_range)
         {
             transform.position = Vector3.MoveTowards(transform.position, min_dist.transform.position, stats.bot_move_speed * Time.deltaTime);
+        }
+        else
+        {
+            min_dist = null;
+            min_distance = float.MaxValue;
         }
     }
 
