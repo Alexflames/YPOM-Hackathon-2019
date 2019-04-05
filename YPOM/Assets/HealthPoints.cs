@@ -6,6 +6,4 @@ public class HealthPoints : MonoBehaviour
 {
     public int healthp; 
     public int maxhealthp;
-    public int healthbot;
-    public int maxhealthbot;
 }
