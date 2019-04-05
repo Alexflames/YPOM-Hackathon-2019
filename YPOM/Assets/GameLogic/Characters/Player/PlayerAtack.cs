@@ -10,17 +10,20 @@ public class PlayerAtack : MonoBehaviour
     public int AttackPower = 1;
     public GameObject colliderCube;
     public Enemy_detect CC_simpleAttack;
+    PlayerStats playerstats;
+    AI_stats bot;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        playerstats = gameObject.GetComponent<PlayerStats>();
     }
 
     void Attack()
     {
         cooldown = m_Cooldown;
         CmdAttack();
+        print("rabotai");
     }
 
    
@@ -35,7 +38,21 @@ public class PlayerAtack : MonoBehaviour
             var HP = obj.GetComponent<HealthPoints>();
             if (HP) 
             {
-                HP.healthp--;
+                print("lol");
+                HP.TakeDamage();
+                if (obj == null && obj.tag == "Player")
+                {
+                    playerstats.kills_count++;
+
+                    playerstats.nutrients += 30;
+                }
+                else if (obj == null && obj.tag == "Bot")
+                {
+                    bot = obj.GetComponent<AI_stats>();
+                    playerstats.creeps_count++;
+                    playerstats.nutrients += 15 * bot.bot_lvl;
+                }
+                
             }
         }
     }

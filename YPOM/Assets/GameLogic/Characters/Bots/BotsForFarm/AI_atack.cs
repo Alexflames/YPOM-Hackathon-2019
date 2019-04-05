@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AI_atack : MonoBehaviour
 {
+    HealthPoints bot;
     AI_agr enemy;
     HealthPoints player_stats;
     public float bot_atack_range = 6f;
@@ -15,11 +16,13 @@ public class AI_atack : MonoBehaviour
     {
         enemy = gameObject.GetComponent<AI_agr>();
         bot_cast_time_left = bot_cast_time;
+        bot = gameObject.GetComponent<HealthPoints>();
     }
 
 
     void Update()
     {
+        bot.TakeDamage();
         GameObject player = enemy.min_dist;
         player_stats = player.GetComponent<HealthPoints>();
         if (Vector3.Distance(transform.position, player.transform.position) <= bot_atack_range)
@@ -28,7 +31,7 @@ public class AI_atack : MonoBehaviour
             CastAnim(bot_cast_time_left);
             if (bot_cast_time_left <= 0)
             {
-                player_stats.healthp--;
+                player_stats.TakeDamage();
                 GetComponent<Renderer>().material.color = Color.red;
                 bot_cast_time_left = bot_cast_time;
             }
