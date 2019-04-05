@@ -22,7 +22,6 @@ public class AI_atack : MonoBehaviour
 
     void Update()
     {
-        bot.TakeDamage();
         GameObject player = enemy.min_dist;
         player_stats = player.GetComponent<HealthPoints>();
         if (Vector3.Distance(transform.position, player.transform.position) <= bot_atack_range)
