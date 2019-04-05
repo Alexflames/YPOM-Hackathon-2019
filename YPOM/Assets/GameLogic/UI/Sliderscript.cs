@@ -10,7 +10,7 @@ public class Sliderscript : MonoBehaviour
     Slider healthbar;
     void Awake()
     {
-        health = GameObject.Find("Cube").GetComponent<HealthPoints>();
+        health = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthPoints>();
         healthbar = GetComponent<Slider>();
     }
 
