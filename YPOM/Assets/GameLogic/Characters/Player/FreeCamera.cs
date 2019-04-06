@@ -16,6 +16,14 @@ public class FreeCamera : MonoBehaviour
         netcam = GameObject.FindGameObjectWithTag("Player").GetComponent<NetCamera>();
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
     }
+    void MoveByButton(char key, Vector3 dir, ref bool moved)
+    {
+        if (Input.inputString.IndexOf(key) != -1)
+        {
+            transform.Translate(dir * cameraspeed * 10 * Time.deltaTime, Space.World);
+            moved = true;
+        }
+    }
     void MoveByButtonFirst(char key)
     {
         if (Input.inputString.IndexOf(key) != -1)
@@ -43,12 +51,11 @@ public class FreeCamera : MonoBehaviour
             transform.Rotate(Vector3.up, -x, Space.World);
         }
     }
-    void MoveByButton(char key, Vector3 dir, ref bool moved)
+    void MoveByButtonThird(char key, int x)
     {
         if (Input.inputString.IndexOf(key) != -1)
         {
-            transform.Translate(dir * cameraspeed * 10 * Time.deltaTime, Space.World);
-            moved = true;
+            transform.position -= -x * transform.up * Time.deltaTime * 100;
         }
     }
 
@@ -63,6 +70,21 @@ public class FreeCamera : MonoBehaviour
             MoveByButton('s', -transform.forward, ref moved);
             MoveByButtonSecond('q', cameraspeed);
             MoveByButtonSecond('e', -cameraspeed);
+            float sw = Input.GetAxis("Mouse ScrollWheel");
+            if (sw > 0.1)
+            {
+                var rotation = transform.eulerAngles;
+                rotation.x += 10;
+                transform.eulerAngles = rotation;;
+            }
+            if (sw < -0.1)
+            {
+                var rotation = transform.eulerAngles;
+                rotation.x -= 10;
+                transform.eulerAngles = rotation;   
+            }
+            MoveByButtonThird('=', 1);
+            MoveByButtonThird('-', -1);
         }
     }
 }
