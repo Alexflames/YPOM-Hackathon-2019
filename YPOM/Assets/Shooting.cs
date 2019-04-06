@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    float range = 20; //радиус атаки
     public float CurrCooldown; //временное КД
     public float Cooldown; //общее КД
     public GameObject Bullet;
+    Ubica_agr vrag;
 
     void Update()
     {
@@ -27,9 +27,11 @@ public class Shooting : MonoBehaviour
 
     void SearchTarget() //поиск цели
     {
-        GameObject enemy = GameObject.FindGameObjectWithTag("Player"); //поиск врага (гг)
+        vrag = gameObject.GetComponent<Ubica_agr>();
+        GameObject enemy = vrag.min_dist; //поиск врага (гг)
+        var range = GetComponentInChildren<CapsuleCollider>();
         float currDistance = Vector3.Distance(transform.position, enemy.transform.position);
-        if (currDistance <= range) //если враг в радиусе
+        if (currDistance <= range.radius) //если враг в радиусе
             Shoot(enemy.transform); //выстрел по нему
     }
 

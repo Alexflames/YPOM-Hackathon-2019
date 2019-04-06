@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     Vector3 pos;
     public GameObject Puddle;
     bool flag_puddle = true;
+    HealthPoints stats;
 
     void Start()
     {
@@ -20,7 +21,8 @@ public class Bullet : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target.position) < 1f) //если пуля достигла цели
         {
-            //target.GetComponent<>().TakeDamage(damage); //получение урона
+            stats = target.GetComponent<HealthPoints>();
+            stats.healthp--;
             Destroy(gameObject); //удаление пули
         }
         if (Vector3.Distance(transform.position, pos) > 0.5f) //пока пуля не достигла места назначения
