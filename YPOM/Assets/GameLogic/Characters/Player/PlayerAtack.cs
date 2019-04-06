@@ -12,18 +12,20 @@ public class PlayerAtack : MonoBehaviour
     public Enemy_detect CC_simpleAttack;
     PlayerStats playerstats;
     AI_stats bot;
+    public Animation anim;
 
     // Start is called before the first frame update
     void Start()
     {
         playerstats = gameObject.GetComponent<PlayerStats>();
+        anim = GetComponentInChildren<Animation>();
     }
 
     void Attack()
     {
         cooldown = m_Cooldown;
+        //anim.Play("Take 002");
         CmdAttack();
-        print("rabotai");
     }
 
    
