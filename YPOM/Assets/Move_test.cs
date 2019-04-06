@@ -23,7 +23,7 @@ public class Move_test : MonoBehaviour   //Скрипт для передвиж�
 
 
 
-    private float speed;
+    public float speed = 10f;
 
     private Vector3 lastMousePos = new Vector3();
 
@@ -34,7 +34,6 @@ public class Move_test : MonoBehaviour   //Скрипт для передвиж�
     {
 
         //stats = GetComponent<PlayerStats>();
-
         //MPE = GetComponent<MovementParticleEmitter>();
 
     }
@@ -78,7 +77,7 @@ public class Move_test : MonoBehaviour   //Скрипт для передвиж�
             //{
 
                 //speed = stats.PlayerSpeed;
-                speed = 10f;
+                //speed = 10f;
 
                 bool moved = false;
 
