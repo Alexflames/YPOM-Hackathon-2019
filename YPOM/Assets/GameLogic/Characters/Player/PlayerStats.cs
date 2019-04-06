@@ -17,4 +17,5 @@ public class PlayerStats : MonoBehaviour
     public int combat;
     public int survive;
     public int utility;
+    public int damage;
 }

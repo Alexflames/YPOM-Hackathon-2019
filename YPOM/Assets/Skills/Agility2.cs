@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSpeedUp2 : MonoBehaviour
+public class Agility2 : MonoBehaviour
 {
     void Start()
     {
