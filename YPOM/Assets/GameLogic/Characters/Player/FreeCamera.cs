@@ -6,16 +6,14 @@ public class FreeCamera : MonoBehaviour
 {
     PlayerStats stats;
     float speed;
-    bool activecam;
+    public bool activecam;
+    public int cameraspeed = 5;
     bool moved;
-    Camera freecamera;
     Vector3 lastMousePos = new Vector3();
     NetCamera netcam;
     void Start()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
         netcam = GameObject.FindGameObjectWithTag("Player").GetComponent<NetCamera>();
-        freecamera = GetComponent<Camera>();
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
     }
     void MoveByButtonFirst(char key)
@@ -49,7 +47,7 @@ public class FreeCamera : MonoBehaviour
     {
         if (Input.inputString.IndexOf(key) != -1)
         {
-            transform.Translate(dir * 50 * Time.deltaTime, Space.World);
+            transform.Translate(dir * cameraspeed * 10 * Time.deltaTime, Space.World);
             moved = true;
         }
     }
@@ -59,21 +57,12 @@ public class FreeCamera : MonoBehaviour
         MoveByButtonFirst('o');
         if (activecam == true)
         {
-            MoveByButton('w', transform.up, ref moved);
+            MoveByButton('w', transform.forward, ref moved);
             MoveByButton('d', transform.right, ref moved);
             MoveByButton('a', -transform.right, ref moved);
-            MoveByButton('s', -transform.up, ref moved);
-            MoveByButtonSecond('q', -5);
-            MoveByButtonSecond('e', 5);
-            float sw = Input.GetAxis("Mouse ScrollWheel");
-            if (sw > 0.1)
-            {
-                transform.position += transform.forward * Time.deltaTime * 100;
-            }
-            if (sw < -0.1)
-            {
-                transform.position -= transform.forward * Time.deltaTime * 100;
-            }
+            MoveByButton('s', -transform.forward, ref moved);
+            MoveByButtonSecond('q', cameraspeed);
+            MoveByButtonSecond('e', -cameraspeed);
         }
     }
 }
