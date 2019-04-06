@@ -9,7 +9,7 @@ public class Enemy_detect : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (!gameObjects.Contains(collision.gameObject))
+        if (!gameObjects.Contains(collision.gameObject) && !collision.gameObject == gameObject)
         {
             gameObjects.Add(collision.gameObject);
             counter++;

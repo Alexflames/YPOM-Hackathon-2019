@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class NetMove : MonoBehaviour   //Скрипт для передвижения игрока
+public class NetRealMove : NetworkBehaviour   //Скрипт для передвижения игрока
 {
     PlayerStats stats;
     //MovementParticleEmitter MPE;
@@ -32,7 +32,7 @@ public class NetMove : MonoBehaviour   //Скрипт для передвиже�
 
     void Update()
     {
-        //if (!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
 
         if (TEAM_VIEWER_USED)
         {
@@ -52,7 +52,7 @@ public class NetMove : MonoBehaviour   //Скрипт для передвиже�
                     MPETimer = 0;
                 }
                 //else if (MPETimer > 0.5)
-                    //MPE.Switch(on: false);
+                //MPE.Switch(on: false);
             }
         }
         //else
