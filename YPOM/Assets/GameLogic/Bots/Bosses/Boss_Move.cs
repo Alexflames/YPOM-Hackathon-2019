@@ -40,7 +40,7 @@ public class Boss_Move : MonoBehaviour
         if (distance <= 0) current_point++;
         transform.LookAt(points[current_point].position);
         transform.position = Vector3.MoveTowards(transform.position, points[current_point].position, boss_speed * Time.deltaTime);
-        if (Vector3.Distance(transform.position, min_dist.transform.position) <= boss_agr_range /*&& Vector3.Distance(transform.position, min_dist.transform.position) >= 5f*/)
+        if (min_dist != null && Vector3.Distance(transform.position, min_dist.transform.position) <= boss_agr_range && Vector3.Distance(transform.position, min_dist.transform.position) >= 5f)
         {
             transform.position = Vector3.MoveTowards(transform.position, min_dist.transform.position, boss_speed * Time.deltaTime);
         }

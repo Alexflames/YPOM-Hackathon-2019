@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7276438414840450521}
   - component: {fileID: 5675348313556942299}
   - component: {fileID: 8266968802100927320}
-  - component: {fileID: 1596768151161644280}
+  - component: {fileID: 1193132777435111096}
   m_Layer: 0
-  m_Name: Boss_Bullet
+  m_Name: Boss_Bullet_puddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1596768151161644280
+--- !u!114 &1193132777435111096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5865458932667587741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572504ff285be3e4687b372e95ab8f34, type: 3}
+  m_Script: {fileID: 11500000, guid: cfcc7746e2a908f4f8137ee836d70a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Puddle: {fileID: 0}
+  Puddle: {fileID: 5528085899317696864, guid: 8049cf89c7c7d7e41ab7950e31e01597, type: 3}

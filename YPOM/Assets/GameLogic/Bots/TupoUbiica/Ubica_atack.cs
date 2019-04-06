@@ -13,19 +13,23 @@ public class Ubica_atack : MonoBehaviour
     public float stun_duration = 3f;
     float speed;
     float stun_left = 3.1f;
+    GameObject player;
 
     void Start()
     {
         enemy = gameObject.GetComponent<Ubica_agr>();
         bot_cast_time_left = bot_cast_time;
         bot = gameObject.GetComponent<HealthPoints>();
+        player = enemy.min_dist;
+        playerstats = player.GetComponent<PlayerStats>();
+        speed = playerstats.playerspeed;
     }
 
 
     void Update()
     {
-        GameObject player = enemy.min_dist;
-        playerstats = player.GetComponent<PlayerStats>();
+       
+       
         var range = GetComponentInChildren<CapsuleCollider>();
         if (stun_left <= stun_duration)
         {
@@ -43,7 +47,6 @@ public class Ubica_atack : MonoBehaviour
             CastAnim(bot_cast_time_left);
             if (bot_cast_time_left <= 0)
             {
-                speed = playerstats.playerspeed;
                 playerstats.playerspeed = 0;
                 bot_cast_time_left = bot_cast_time;
                 stun_left -= 0.1f;

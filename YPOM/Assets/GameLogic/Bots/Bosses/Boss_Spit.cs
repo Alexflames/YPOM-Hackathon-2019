@@ -31,16 +31,20 @@ public class Boss_Spit : MonoBehaviour
         vrag = gameObject.GetComponent<Boss_Move>();
         GameObject enemy = vrag.min_dist; //поиск врага (гг)
         var range = GetComponentInChildren<CapsuleCollider>();
+        if (enemy == null)
+            return;
         float currDistance = Vector3.Distance(transform.position, enemy.transform.position);
         if (currDistance <= (range.radius +2)) //если враг в радиусе
-            Shoot(enemy.transform); //выстрел по нему
+            Shoot(enemy); //выстрел по нему
     }
 
-    void Shoot(Transform enemy) //функция выстрела
+    void Shoot(GameObject enemy) //функция выстрела
     {
         CurrCooldown = Cooldown; //обновление КД
         GameObject bul = Instantiate(Bullet); //создание пули
         bul.transform.position = transform.position; //место появления пули
+        bul.GetComponent<Boss_BulletSpit>().parent = gameObject;
         bul.GetComponent<Boss_BulletSpit>().SetTarget(enemy);
+        
     }
 }

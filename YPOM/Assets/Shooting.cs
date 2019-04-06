@@ -40,6 +40,6 @@ public class Shooting : MonoBehaviour
         CurrCooldown = Cooldown; //обновление КД
         GameObject bul = Instantiate(Bullet); //создание пули
         bul.transform.position = transform.position; //место появления пули
-        bul.GetComponent<Bullet>().SetTarget(enemy);
+        //bul.GetComponent<Bullet>().SetTarget(enemy);
     }
 }

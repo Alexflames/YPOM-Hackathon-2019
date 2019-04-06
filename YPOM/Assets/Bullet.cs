@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    Transform target; //цель
     float speed = 10; //скорость полета пули
     //int damage = ; //урон от одной пули
     Vector3 pos;
     public GameObject Puddle;
     bool flag_puddle = true;
     HealthPoints stats;
+    Boss_Move player;
+    GameObject enemy;
 
     void Start()
     {
@@ -19,9 +20,11 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, target.position) < 1f) //если пуля достигла цели
+        player = gameObject.GetComponent<Boss_Move>();
+        enemy = player.min_dist;
+        if (Vector3.Distance(transform.position, enemy.transform.position) < 1f) //если пуля достигла цели
         {
-            stats = target.GetComponent<HealthPoints>();
+            stats = enemy.GetComponent<HealthPoints>();
             stats.healthp--;
             Destroy(gameObject); //удаление пули
         }
@@ -31,10 +34,9 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject); //удаление пули
     }
 
-    public void SetTarget(Transform enemy) //установка цели
+    public void SetTarget() //установка цели
     {
-        target = enemy;
-        pos = target.position; //позиция объекта (на момент выстрела)
+        pos = enemy.transform.position; //позиция объекта (на момент выстрела)
         pos.y -= 0.5f; //высота персонажа
     }
 

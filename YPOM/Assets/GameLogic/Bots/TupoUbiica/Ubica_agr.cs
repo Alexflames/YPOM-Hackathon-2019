@@ -6,8 +6,6 @@ public class Ubica_agr : MonoBehaviour
 {
     Player_detect bot;
     AI_stats stats;
-    public float bot_agr_range = 10f;
-    public float bot_speed;
     GameObject player;
    public GameObject min_dist = null;
     public float distance;
@@ -37,17 +35,17 @@ public class Ubica_agr : MonoBehaviour
             }
         }
         var range = GetComponentInChildren<SphereCollider>();
-        if (min_dist != null && Vector3.Distance(transform.position, min_dist.transform.position) <= range.radius && bot_hp.healthp > 6)
+        if (min_dist != null && Vector3.Distance(transform.position, min_dist.transform.position) <= range.radius)
         {
             transform.position = Vector3.MoveTowards(transform.position, min_dist.transform.position, stats.bot_move_speed * Time.deltaTime);
         }
-        else if (min_dist != null && Vector3.Distance(transform.position, min_dist.transform.position) >= range.radius && bot_hp.healthp > 6)
+        else if (min_dist != null && Vector3.Distance(transform.position, min_dist.transform.position) >= range.radius)
         {
             min_dist = null;
             min_distance = float.MaxValue;
         }
-        else if (bot_hp.healthp <= 6)
-            transform.position = Vector3.MoveTowards(transform.position, min_dist.transform.position * 4f, stats.bot_move_speed * Time.deltaTime);
+    //    else if (bot_hp.healthp <= 6)
+    //        transform.position = Vector3.MoveTowards(transform.position, min_dist.transform.position * 4f, stats.bot_move_speed * Time.deltaTime);
     }
 
   

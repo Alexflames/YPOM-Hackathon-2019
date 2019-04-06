@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss_Shooting : MonoBehaviour
+public class Ubica_Shooting : MonoBehaviour
 {
     public float CurrCooldown; //временное КД
     public float Cooldown; //общее КД
     public GameObject Bullet;
-    Boss_Move vrag;
+    Ubica_agr vrag;
 
     void Update()
     {
@@ -27,11 +27,9 @@ public class Boss_Shooting : MonoBehaviour
 
     void SearchTarget() //поиск цели
     {
-        vrag = gameObject.GetComponent<Boss_Move>();
+        vrag = gameObject.GetComponent<Ubica_agr>();
         GameObject enemy = vrag.min_dist; //поиск врага (гг)
         var range = GetComponentInChildren<CapsuleCollider>();
-        if (enemy == null)
-            return;
         float currDistance = Vector3.Distance(transform.position, enemy.transform.position);
         if (currDistance <= range.radius) //если враг в радиусе
             Shoot(enemy); //выстрел по нему
@@ -42,8 +40,7 @@ public class Boss_Shooting : MonoBehaviour
         CurrCooldown = Cooldown; //обновление КД
         GameObject bul = Instantiate(Bullet); //создание пули
         bul.transform.position = transform.position; //место появления пули
-        bul.GetComponent<Boss_Bullet>().parent = gameObject;
-        bul.GetComponent<Boss_Bullet>().SetTarget(enemy);
-
+        bul.GetComponent<Bullet_Ubica>().parent = gameObject;
+        bul.GetComponent<Bullet_Ubica>().SetTarget(enemy);
     }
 }
