@@ -15,7 +15,7 @@ public class Boss_Move : MonoBehaviour
     GameObject player;
     public List<GameObject> players;
     public float min_distance = float.MaxValue;
-    GameObject min_dist;
+   public  GameObject min_dist;
     public float boss_agr_range = 20f;
 
     private void Start()
@@ -35,14 +35,14 @@ public class Boss_Move : MonoBehaviour
                 min_dist = obj;
             }
         }
-        if (Vector3.Distance(transform.position, min_dist.transform.position) <= boss_agr_range && Vector3.Distance(transform.position, min_dist.transform.position) >= 5f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, min_dist.transform.position, boss_speed * Time.deltaTime);
-        }
-            if (current_point == points.Length) current_point = 0;
+        if (current_point == points.Length) current_point = 0;
         distance = Vector3.Distance(transform.position, points[current_point].position);
         if (distance <= 0) current_point++;
         transform.LookAt(points[current_point].position);
         transform.position = Vector3.MoveTowards(transform.position, points[current_point].position, boss_speed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, min_dist.transform.position) <= boss_agr_range /*&& Vector3.Distance(transform.position, min_dist.transform.position) >= 5f*/)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, min_dist.transform.position, boss_speed * Time.deltaTime);
+        }
     }
 }
