@@ -1491,7 +1491,7 @@ GameObject:
   - component: {fileID: 1234265230}
   m_Layer: 0
   m_Name: Tree
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa3ccb9f49cba94bbf8bc70b91372b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruits: 
+  countfruits: 0
   prefab: {fileID: 4116500456584744968, guid: fa453f1847235cd4daf2213d080b603b, type: 3}
   time: 1
   time_now: 0
