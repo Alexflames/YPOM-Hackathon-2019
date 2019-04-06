@@ -21,5 +21,9 @@ public class SkillTreeManager : MonoBehaviour
                 skillTree.SetActive(true);
             }
         }
+        else
+        {
+            skillTree.SetActive(false);
+        }
     }
 }
