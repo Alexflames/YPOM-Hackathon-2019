@@ -11,10 +11,14 @@ public class Jump : MonoBehaviour
     public float height; //высота прыжка
     float speed = 20; //скорость полета
     int flag = -1;
+    public Texture SkillIMG;
+    SkillManager manager;
+    KeyCode key;
 
     void Start()
     {
-
+        SkillIMG = Resources.Load<Texture>("Image");
+        key = GetComponent<SkillManager>().AddSkill(SkillIMG);
     }
     
     void Update()
