@@ -12,10 +12,12 @@ public class NetMove : MonoBehaviour   //Скрипт для передвиже�
 
     private float speed;
     private Vector3 lastMousePos = new Vector3();
+    public Animation movementAnim;
 
     void Start()
     {
         stats = GetComponent<PlayerStats>();
+        movementAnim.GetComponentInChildren<Animation>();
         //MPE = GetComponent<MovementParticleEmitter>();
     }
 
@@ -45,6 +47,7 @@ public class NetMove : MonoBehaviour   //Скрипт для передвиже�
                 MoveByButton('s', -transform.forward, ref moved);
                 if (moved)
                 {
+                    if (!movementAnim.isPlaying) movementAnim.PlayQueued("Take 001");
                     //MPE.Switch(on: true);
                     MPETimer = 0;
                 }
