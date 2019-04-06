@@ -40,7 +40,7 @@ public class Ubica_atack : MonoBehaviour
                 playerstats.playerspeed = speed;
             }
 
-        }
+        }   
         if (Vector3.Distance(transform.position, player.transform.position) <= range.radius)
         {
             bot_cast_time_left -= Time.deltaTime;
