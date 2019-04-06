@@ -392,7 +392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 26.600006, y: 41}
+  m_AnchoredPosition: {x: 26.599976, y: 41}
   m_SizeDelta: {x: -847, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &99577553
@@ -880,8 +880,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 3029001024484450309}
   - {fileID: 777606526}
+  - {fileID: 3029001024484450309}
   - {fileID: 1622611084}
   - {fileID: 1773140248}
   - {fileID: 1068046979}
@@ -1842,7 +1842,7 @@ RectTransform:
   - {fileID: 805763282}
   - {fileID: 775216594}
   m_Father: {fileID: 397250961}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -4229,7 +4229,7 @@ PrefabInstance:
     - target: {fileID: 3834908119227021205, guid: 1c49a89af21b5ef48b0ad9370bb41c75,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3029001024484450309, guid: 1c49a89af21b5ef48b0ad9370bb41c75,
         type: 3}
@@ -4294,7 +4294,7 @@ PrefabInstance:
     - target: {fileID: 3029001024484450309, guid: 1c49a89af21b5ef48b0ad9370bb41c75,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3029001024484450309, guid: 1c49a89af21b5ef48b0ad9370bb41c75,
         type: 3}
@@ -4334,6 +4334,21 @@ PrefabInstance:
     - target: {fileID: 3029001024484450309, guid: 1c49a89af21b5ef48b0ad9370bb41c75,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029001024484450309, guid: 1c49a89af21b5ef48b0ad9370bb41c75,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029001024484450309, guid: 1c49a89af21b5ef48b0ad9370bb41c75,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029001024484450309, guid: 1c49a89af21b5ef48b0ad9370bb41c75,
+        type: 3}
+      propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []

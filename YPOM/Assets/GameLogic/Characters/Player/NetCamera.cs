@@ -15,7 +15,7 @@ public class NetCamera : MonoBehaviour
             {
                 int sign = Input.mousePosition.x > lastMousePos.x ? 1 : -1;
                 float dx = Vector3.Distance(Input.mousePosition, lastMousePos);
-                transform.Rotate(Vector3.up, sign * dx / 10, Space.World);
+                transform.Rotate(Vector3.up, sign * dx / 5, Space.World);
                 lastMousePos = Input.mousePosition;
             }
         }

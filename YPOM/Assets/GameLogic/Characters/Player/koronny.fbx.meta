@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e94b19b712fd60459b76134359fca44
+guid: 17a4b2630ed7b774b9945ef9f4219d72
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -48,13 +48,19 @@ ModelImporter:
     100084: Bone045
     100086: Bone046
     100088: Box001
-    100090: IK Chain001
-    100092: IK Chain004
-    100094: IK Chain005
-    100096: IK Chain006
-    100098: IK Chain007
-    100100: IK Chain008
-    100102: //RootNode
+    100090: Circle001
+    100092: Circle002
+    100094: Circle003
+    100096: Circle004
+    100098: Circle005
+    100100: Circle006
+    100102: IK Chain001
+    100104: IK Chain002
+    100106: IK Chain003
+    100108: IK Chain004
+    100110: IK Chain005
+    100112: IK Chain006
+    100114: //RootNode
     400000: Bone001
     400002: Bone002
     400004: Bone003
@@ -100,20 +106,25 @@ ModelImporter:
     400084: Bone045
     400086: Bone046
     400088: Box001
-    400090: IK Chain001
-    400092: IK Chain004
-    400094: IK Chain005
-    400096: IK Chain006
-    400098: IK Chain007
-    400100: IK Chain008
-    400102: //RootNode
+    400090: Circle001
+    400092: Circle002
+    400094: Circle003
+    400096: Circle004
+    400098: Circle005
+    400100: Circle006
+    400102: IK Chain001
+    400104: IK Chain002
+    400106: IK Chain003
+    400108: IK Chain004
+    400110: IK Chain005
+    400112: IK Chain006
+    400114: //RootNode
     2100000: No Name
     4300000: Box001
     7400000: Take 001
     9500000: //RootNode
     11100000: //RootNode
     13700000: Box001
-    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnFruits : MonoBehaviour
 {
-    public List<bool> fruits;
+    public int countfruits;
     public GameObject prefab;
     public float time = 1f;
     public float time_now;
@@ -16,7 +16,7 @@ public class SpawnFruits : MonoBehaviour
         print(gameObject.transform.position.y);
         print(gameObject.name);
         Instantiate(prefab, new Vector3(x, 0.5f, z), Quaternion.identity);
-        fruits.Add(true);
+        countfruits++;
     }
     void Start()
     {
@@ -26,7 +26,7 @@ public class SpawnFruits : MonoBehaviour
     void FixedUpdate()
     {
         time_now -= Time.deltaTime;
-        if (time_now <= 0 && fruits.Count < 3)
+        if (time_now <= 0 && countfruits < 3)
         {
             create();
             time_now = time;
