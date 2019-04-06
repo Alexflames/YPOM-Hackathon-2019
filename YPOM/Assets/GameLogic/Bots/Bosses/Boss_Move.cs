@@ -35,9 +35,9 @@ public class Boss_Move : MonoBehaviour
                 min_dist = obj;
             }
         }
-        if (Vector3.Distance(transform.position, min_dist.position) <= boss_agr_range && Vector3.Distance(transform.position, min_dist.position) >= 5f) ;
+        if (Vector3.Distance(transform.position, min_dist.transform.position) <= boss_agr_range && Vector3.Distance(transform.position, min_dist.transform.position) >= 5f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, min_dist.transform, boss_speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, min_dist.transform.position, boss_speed * Time.deltaTime);
         }
             if (current_point == points.Length) current_point = 0;
         distance = Vector3.Distance(transform.position, points[current_point].position);
