@@ -23,6 +23,7 @@ public class Jump : MonoBehaviour
     
     void Update()
     {
+        print(flag);
         if (Input.inputString.IndexOf('q') != -1)
             Update_Position(); //обновление позиции
 
@@ -33,29 +34,27 @@ public class Jump : MonoBehaviour
             else
                 flag = 1;
         }
-        else if (flag == 1)
+        if (flag == 1)
         {
             if (Vector3.Distance(transform.position, pos_2) > 0.5f) //пока 2 стадия прыжка
                 Move(pos_2); //движение
+            else
+                flag = -1;
         }
     }
 
     void Move(Vector3 pos)
     {
         print(pos);
-        direction = pos - transform.forward;
-        transform.Translate(direction.normalized * Time.deltaTime * speed); //перемещение
+        direction = pos - transform.position;
+        transform.Translate(direction.normalized * Time.deltaTime * speed, Space.World); //перемещение
     }
 
     void Update_Position()
     {
-        Vector3 direction = gameObject.transform.forward;
-        pos_1 = transform.position;
-        pos_1.z += length / 2f;
+        pos_1 = transform.position + transform.forward * length / 2;
         pos_1.y += height;
-        pos_2 = transform.position;
-        pos_2.z += length;
-        pos_2.y -= 0.5f;
+        pos_2 = transform.position + transform.forward * length;
         flag = 0;
     }
 }
