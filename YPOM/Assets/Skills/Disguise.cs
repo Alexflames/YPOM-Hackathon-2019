@@ -7,9 +7,13 @@ public class Disguise : MonoBehaviour
     public float CurrWait; //временное КД
     public float Wait; //общее КД
     Renderer[] renderers;
+    public Texture SkillIMG;
+    KeyCode key;
 
     void Start()
     {
+        SkillIMG = Resources.Load<Texture>("disguise");
+        key = GetComponent<SkillManager>().AddSkill(SkillIMG);
         renderers = gameObject.GetComponentsInChildren<Renderer>();
         foreach(var renderer in renderers)
         {
