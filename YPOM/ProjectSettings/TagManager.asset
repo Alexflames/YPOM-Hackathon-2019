@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Helper
   - Bot
+  - enemy
   layers:
   - Default
   - TransparentFX

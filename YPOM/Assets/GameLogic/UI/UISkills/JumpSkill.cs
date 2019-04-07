@@ -8,18 +8,22 @@ public class JumpSkill : MonoBehaviour, IPointerDownHandler
 {
     GameObject player;
     Texture SkillIMG;
+    public Image image;
+    public CanvasSetPlayer CSP;
 
     void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        CSP = GameObject.Find("Canvas").GetComponent<CanvasSetPlayer>();
     }
     public void OnPointerDown(PointerEventData eventData)
     {
+        player = CSP.player;
         if (player.GetComponent<Jump>() == null)
         {
             player.AddComponent<Jump>();
-//            SkillIMG = Resources.Load<Texture>("");
-//            GetComponent<SquareManager>().AddSkill(SkillIMG);
+            image.sprite = Resources.Load<Sprite>("jump");
+            SkillIMG = Resources.Load<Texture>("jump");
+            player.GetComponent<SquareManager>().AddSkill(SkillIMG);
         }
     }
 }
