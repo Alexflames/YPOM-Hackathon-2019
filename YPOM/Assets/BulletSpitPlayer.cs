@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BulletSpitPlayer : MonoBehaviour
 {
-    Transform target; //цель
-    float speed = 10; //скорость полета пули
+    Transform point; //цель
+    public float speed = 10; //скорость полета пули
+    public float range = 10;
     //int damage = ; //урон от одной пули
     Vector3 pos;
     public GameObject Puddle;
@@ -18,7 +19,7 @@ public class BulletSpitPlayer : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, target.position) < 1f) //если пуля достигла цели
+        if (Vector3.Distance(transform.position, pos) <= 0.5f) //если пуля достигла точки
         {
             //target.GetComponent<>().TakeDamage(damage); //получение урона
             Destroy(gameObject); //удаление пули
@@ -35,9 +36,15 @@ public class BulletSpitPlayer : MonoBehaviour
         }
     }
 
+    public void SetTarget(GameObject point) //установка цели
+    {
+        pos = point.transform.position + transform.forward * range; //позиция конечного пункта пули
+        pos.y -= 0.5f; //высота персонажа
+    }
+
     void Move()
     {
         Vector3 dir = pos - transform.position;
-        transform.Translate(dir.normalized * Time.deltaTime * speed); //перемещение
+        transform.Translate(dir.normalized * Time.deltaTime * speed, Space.World); //перемещение
     }
 }
