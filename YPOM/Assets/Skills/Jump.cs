@@ -17,7 +17,7 @@ public class Jump : MonoBehaviour
 
     void Start()
     {
-        SkillIMG = Resources.Load<Texture>("Image");
+        SkillIMG = Resources.Load<Texture>("jump");
         key = GetComponent<SkillManager>().AddSkill(SkillIMG);
     }
     
