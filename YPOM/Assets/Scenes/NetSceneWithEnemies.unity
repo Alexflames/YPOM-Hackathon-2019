@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ed14b66eab5c54ab5a17235245d22b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time_to_next_zone: 15
+  time_to_next_zone: 5
   moving_time: 0
   new_radius: 0
   zone_number: 1
