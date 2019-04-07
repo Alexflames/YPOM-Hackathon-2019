@@ -4,16 +4,28 @@ using UnityEngine;
 
 public class Puddle : MonoBehaviour
 {
+    public float CurrCooldown; //временное КД
+    public float Cooldown; //общее КД
+
     void Start()
     {
-        Invoke("Delete_Puddle", 10); //исчезновение лужи
+        Invoke("Delete_Puddle", 30); //исчезновение лужи
     }
 
-    void OnCollisionEnter(Collision collision) //столкновение с лужей
+    void OnTriggerStay(Collider collision) //столкновение с лужей
     {
-        //if (collision.collider.tag == "Player") //если игрок наступил в лужу
-            //GameObject.FindGameObjectWithTag("Player").GetComponent<>().TakeDamage(1); //нанесение урона игроку
-        if (collision.collider.tag == "enemy") //если моб наступил в лужу
+        var player = collision.GetComponent<HealthPoints>();
+        if (collision.tag == "Player") //если игрок наступил в лужу
+        {
+            if (CurrCooldown > 0) //есть ли КД
+                CurrCooldown -= Time.deltaTime; //уменьшение КД
+            else
+            {
+                player.TakeDamage();
+                CurrCooldown = Cooldown;
+            }
+        }
+        if (collision.tag == "enemy") //если моб наступил в лужу
            Destroy(GameObject.FindGameObjectWithTag("enemy")); //уничтожение мобов
 
     }

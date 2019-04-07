@@ -6,7 +6,7 @@ public class BulletSpit : MonoBehaviour
 {
     Transform target; //цель
     float speed = 10; //скорость полета пули
-    //int damage = ; //урон от одной пули
+    public int damage = 1; //урон от одной пули
     Vector3 pos;
     public GameObject Puddle;
     bool flag_puddle = true;
@@ -20,7 +20,7 @@ public class BulletSpit : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target.position) < 1f) //если пуля достигла цели
         {
-            //target.GetComponent<>().TakeDamage(damage); //получение урона
+            target.GetComponent<HealthPoints>().TakeDamage(); //получение урона
             Destroy(gameObject); //удаление пули
         }
         if (Vector3.Distance(transform.position, pos) > 0.5f) //пока пуля не достигла места назначения
