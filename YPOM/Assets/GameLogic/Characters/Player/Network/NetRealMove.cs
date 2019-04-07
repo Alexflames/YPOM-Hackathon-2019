@@ -47,9 +47,10 @@ public class NetRealMove : NetworkBehaviour   //Скрипт для передв
                 MoveByButton('s', -transform.forward, ref moved);
                 if (moved)
                 {
-                    if (!movementAnim.isPlaying) movementAnim.CrossFade("moon-walk");
+                    if (!movementAnim.isPlaying) CmdMove();
                     //MPE.Switch(on: true);
                     MPETimer = 0;
+                    
                 }
                 //else if (MPETimer > 0.5)
                 //MPE.Switch(on: false);
@@ -59,5 +60,17 @@ public class NetRealMove : NetworkBehaviour   //Скрипт для передв
         //{
 
         //}
+    }
+
+    [Command]
+    void CmdMove()
+    {
+        RpcClientAnim();
+    }
+
+    [ClientRpc]
+    void RpcClientAnim()
+    {
+        movementAnim.CrossFade("moon-walk");
     }
 }

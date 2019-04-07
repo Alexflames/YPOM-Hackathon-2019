@@ -604,6 +604,8 @@ GameObject:
   - component: {fileID: 6054356304998503619}
   - component: {fileID: 9047749722230704220}
   - component: {fileID: 5918682307630741969}
+  - component: {fileID: 9211282460107150853}
+  - component: {fileID: 1092445761893586722}
   m_Layer: 0
   m_Name: NetPlayer
   m_TagString: Player
@@ -648,7 +650,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -681,6 +683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCamera: {fileID: 0}
+  TreeCamera: {fileID: 0}
 --- !u!114 &496156535929575275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,6 +709,7 @@ MonoBehaviour:
   combat: 0
   survive: 0
   utility: 0
+  damage: 0
 --- !u!114 &496156535929575273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,7 +738,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 96
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1292424939382250767
 BoxCollider:
@@ -831,7 +835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cooldown: 0.5
-  AttackPower: 1
+  AttackPower: 10
   colliderCube: {fileID: 0}
   CC_simpleAttack: {fileID: 496156535484609096}
   anim: {fileID: 0}
@@ -849,6 +853,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthp: 100
   maxhealthp: 100
+--- !u!114 &9211282460107150853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496156535929575264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 496156535484609102}
+  m_ChildIndex: 0
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
+--- !u!114 &1092445761893586722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496156535929575264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d120d25a555584409c8fae8b1f1bcf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  square:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  check: 000000000000000000000000000000000000000000000000000000
 --- !u!1 &496156535940023534
 GameObject:
   m_ObjectHideFlags: 0
@@ -2120,7 +2185,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 20, z: 35}
+  m_Size: {x: 25, y: 25, z: 40}
   m_Center: {x: 0, y: 0, z: 0.3}
 --- !u!1 &496156537550651053
 GameObject:
@@ -2282,6 +2347,10 @@ PrefabInstance:
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 7400000, guid: d889bfdbbd8218343b61027ce9ba3804, type: 3}
+    - target: {fileID: 13700000, guid: 17a4b2630ed7b774b9945ef9f4219d72, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100010, guid: 6a1d8ba96b03e4b42b32d2e555a47f89, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a4b2630ed7b774b9945ef9f4219d72, type: 3}
 --- !u!4 &4645272367767814312 stripped

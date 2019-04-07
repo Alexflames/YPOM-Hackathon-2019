@@ -81,6 +81,7 @@ public class NetPlayerAttack : NetworkBehaviour
     void RpcTest(int cnt)
     {
         print(cnt);
+        anim.CrossFade("Take 001");
     }
 
     // Update is called once per frame
