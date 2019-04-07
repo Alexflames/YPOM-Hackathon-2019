@@ -8,7 +8,7 @@ public class Sunset : MonoBehaviour
     static public float day_time = 15f;   //время для дневной и ночной фазы
     static public float night_time = 6f;
     static public float dayCount = 0f;
-    public float rot = 0f;//текуще вращение
+    public static float rot = 0f;//текуще вращение
     float z;
     public float sun_speed;//скорость "солнца"
     public static bool day = true;//день или ночь сейчас

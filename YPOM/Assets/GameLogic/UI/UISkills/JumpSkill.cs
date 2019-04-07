@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class JumpSkill : MonoBehaviour, IPointerDownHandler
 {
     GameObject player;
+    Texture SkillIMG;
 
     void Awake()
     {
@@ -15,6 +16,10 @@ public class JumpSkill : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         if (player.GetComponent<Jump>() == null)
+        {
             player.AddComponent<Jump>();
+//            SkillIMG = Resources.Load<Texture>("");
+//            GetComponent<SquareManager>().AddSkill(SkillIMG);
+        }
     }
 }

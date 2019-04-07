@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class HalfFishSkill : MonoBehaviour, IPointerDownHandler
 {
     GameObject player;
+    Texture SkillIMG;
     public Image image;
 
     void Awake()
@@ -19,6 +20,8 @@ public class HalfFishSkill : MonoBehaviour, IPointerDownHandler
         {
             player.AddComponent<WalkWaterScript>();
             image.sprite = Resources.Load<Sprite>("halffish");
+            SkillIMG = Resources.Load<Texture>("halffish");
+            player.GetComponent<SquareManager>().AddSkill(SkillIMG);
         }
     }
 }
