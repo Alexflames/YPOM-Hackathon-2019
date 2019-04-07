@@ -11,26 +11,32 @@ public class PlayZone : MonoBehaviour
     public float new_radius;
     public float zone_number = 1f;
     public bool in_zone = true;
+    public float maximum = 3200f;
+    public float minimum = 1900;
+    float t = 0;
     void Start()
     {
         var zone = GetComponent<CapsuleCollider>();
-        new_radius = zone.radius - 1f;
     }
     void Update()
     {
         var zone = GetComponent<CapsuleCollider>();
-
-        if (moving_time >= time_to_next_zone)
+        if (moving_time >= time_to_next_zone && zone_number != 3)
         {
-            if (zone.radius >= new_radius)
+            t += Time.deltaTime;
             {
-                zone.radius -= 0.1f * Time.deltaTime;
-            }
-            else
-            {
-                zone_number++;
-                moving_time = 0;
-                new_radius = zone.radius - 1f * zone_number;
+                if (transform.parent.localScale.x != minimum)
+                {
+                    transform.parent.localScale = new Vector3(Mathf.Lerp(maximum, minimum, t / 20), Mathf.Lerp(maximum, minimum, t / 20), 100);
+                }
+                else
+                {
+                    t = 0;
+                    maximum = minimum;
+                    zone_number++;
+                    moving_time = 0;
+                    minimum = maximum - 1300; ;
+                }
             }
         }
         else
