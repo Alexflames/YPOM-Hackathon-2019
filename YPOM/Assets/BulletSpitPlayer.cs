@@ -34,7 +34,7 @@ public class BulletSpitPlayer : MonoBehaviour
     public void SetTarget(GameObject point) //установка цели
     {
         pos = point.transform.position + transform.forward * range; //позиция конечного пункта пули
-        pos.y -= 0.5f; //высота персонажа
+        pos.y -= 1.3f; //высота персонажа
     }
 
     void Move()

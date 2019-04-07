@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 
 public class NetManageSkillTree : NetworkBehaviour
 {
+    public bool test;
     public GameObject SkillTree;
     public GameObject BackgroundTree;
     private Renderer BTRend;
@@ -25,7 +26,7 @@ public class NetManageSkillTree : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!NetSunset.day)
+        if (!NetSunset.day&&!test)
         {
             SkillTree.SetActive(true);
             float proportion = (sunSetScr.rot - 180) / 180.0f;
