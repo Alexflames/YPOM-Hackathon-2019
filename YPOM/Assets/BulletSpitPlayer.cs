@@ -7,7 +7,7 @@ public class BulletSpitPlayer : MonoBehaviour
     Transform point; //цель
     public float speed = 10; //скорость полета пули
     public float range = 10;
-    //int damage = ; //урон от одной пули
+    public int damage = 1; //урон от одной пули
     Vector3 pos;
     public GameObject Puddle;
     bool flag_puddle = true;
@@ -19,11 +19,6 @@ public class BulletSpitPlayer : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, pos) <= 0.5f) //если пуля достигла точки
-        {
-            //target.GetComponent<>().TakeDamage(damage); //получение урона
-            Destroy(gameObject); //удаление пули
-        }
         if (Vector3.Distance(transform.position, pos) > 0.5f) //пока пуля не достигла места назначения
             Move(); //движение пули
         else if (flag_puddle) //если лужи еще нет
@@ -46,5 +41,15 @@ public class BulletSpitPlayer : MonoBehaviour
     {
         Vector3 dir = pos - transform.position;
         transform.Translate(dir.normalized * Time.deltaTime * speed, Space.World); //перемещение
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            var player = other.GetComponent<HealthPoints>();
+            player.TakeDamage();
+            //other.GetComponent<HealthPoints>().TakeDamage();
+            Destroy(gameObject);
+        }
     }
 }
