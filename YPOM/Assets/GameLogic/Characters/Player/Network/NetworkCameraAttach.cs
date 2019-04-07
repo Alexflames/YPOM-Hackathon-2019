@@ -14,7 +14,7 @@ public class NetworkCameraAttach : NetworkBehaviour
         if (!isLocalPlayer) return;
         PlayerCamera = GameObject.Find("Camera");
         TreeCamera = GameObject.Find("CameraTree");
-        PlayerCamera.transform.position = transform.position + new Vector3(0, 12, -7);
+        PlayerCamera.transform.position = transform.position + new Vector3(0, 14, -11);
         PlayerCamera.transform.parent = gameObject.transform;
     }
 

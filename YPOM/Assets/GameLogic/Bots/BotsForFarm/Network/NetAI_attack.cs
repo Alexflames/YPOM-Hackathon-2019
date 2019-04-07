@@ -12,6 +12,7 @@ public class NetAI_attack : NetworkBehaviour
     public float bot_cast_time = 3f;
     float bot_cast_time_left;
     public float bot_cast_cd = 3f;
+    Animation anim;
 
     void Start()
     {
@@ -32,23 +33,16 @@ public class NetAI_attack : NetworkBehaviour
             if (bot_cast_time_left <= 0)
             {
                 player_HP.TakeDamage(attackPower);
-                GetComponent<Renderer>().material.color = Color.red;
                 bot_cast_time_left = bot_cast_time;
             }
         }
         else if (Vector3.Distance(transform.position, player.transform.position) > bot_atack_range)
         {
-            GetComponent<Renderer>().material.color = Color.red;
             bot_cast_time_left = bot_cast_time;
         }
     }
     void CastAnim(float bot_cast_time_left)
     {
-        if (bot_cast_time_left >= 2f)
-            GetComponent<Renderer>().material.color = Color.green;
-        else if (bot_cast_time_left >= 1f)
-            GetComponent<Renderer>().material.color = Color.yellow;
-        else
-            GetComponent<Renderer>().material.color = Color.blue;
+        anim.Play("Take 002");
     }
 }
