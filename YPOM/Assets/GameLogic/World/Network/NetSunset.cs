@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class NetSunset : NetworkBehaviour
 {
 
-    static public float day_time = 90f;   //время для дневной и ночной фазы
+    static public float day_time = 50f;   //время для дневной и ночной фазы
     static public float night_time = 20f;
     static public float dayCount = 0f;
     [SyncVar]

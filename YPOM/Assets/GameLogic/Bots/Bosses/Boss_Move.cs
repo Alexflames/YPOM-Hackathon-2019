@@ -23,6 +23,7 @@ public class Boss_Move : MonoBehaviour
         bot = gameObject.GetComponentInChildren<Player_detect>();
         points = new Transform[3] { point1.transform, point2.transform, point3.transform };
     }
+
     void Update()
     {
         players = bot.GetCollidingObjects();
